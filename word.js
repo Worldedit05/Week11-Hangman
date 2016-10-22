@@ -13,7 +13,7 @@ var Word = function(answerWord, currentWord, userGuess) {
                 currentWord.splice(i, 1, newLet);
             } else if (this.answerWord[i] === this.userGuess) {
                 var newLet = new Letter(this.userGuess, true).letterConv();
-                console.log("\n\n'" + newLet + "' is correct!");
+                console.log("\n  -------------------\n\n    '" + newLet + "' is correct!\n\n  -------------------");
                 currentWord.splice(i, 1, newLet);
             } else {
                 var newLet = new Letter(this.userGuess, false).letterConv();

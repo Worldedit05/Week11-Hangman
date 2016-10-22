@@ -18,7 +18,20 @@ function letterGuess () {
     {
       type: 'input',
       name: 'letter',
-      message: 'Guess a letter: '
+      message: 'Guess a letter: ',
+      validate: function (input){
+        var done = this.async();
+        var validLetter  = /^[a-z]+$/;
+        if (validLetter.test(input) === false) {
+            console.log('\n\nOnly input a letter from A through Z.\n\n');
+            return;
+          }
+          if (input.length > 1) {
+            console.log('\n\nPlease only guess one letter at a time!\n\n');
+            return;
+          }
+        done(null,true);
+      }
     }
 
   ]).then(function (userInput) {
@@ -35,19 +48,19 @@ function letterGuess () {
 
     var word = new Word(answer, guessWord, guess);
 
-    // console.log(word.checkLetter());
-
     guessWord = word.checkLetter();
 
-    console.log("\n\nHere is your current word: " + guessWord.join(" "));
+    // console.log("\n  -------------------\n\n    '" + newLet + "' is correct!\n\n  -------------------");
+
+    console.log("\n----------------------------------------\n\nHere is your current word: " + guessWord.join(" "));
     console.log("\nGuessed Letters: " + guessedLetters.join());
-    console.log("Number of guesses left: " + numGuesses + "\n");
+    console.log("Number of guesses left: " + numGuesses + "\n\n----------------------------------------\n");
 
     if (guessWord.join("") === answer.join("")) {
-      console.log("You win!\n\n");
+      console.log("The word was: " + answer.join("") + "\n\nYou win!\n\n");
     }
     else if (numGuesses === 0) {
-      console.log("The word was: " + answer.join("") +  "\n\nYou lose. Please play again!\n\n");
+      console.log("The word was: " + answer.join("") +  "\n\nYou've run out of guesses. Please play again!\n\n");
     }
     else
     {
