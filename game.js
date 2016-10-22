@@ -1,19 +1,37 @@
 // This file will randomly select a word for the player
 
 var wordObj = {
-  words: ['desting','ghost','vex','taken', 'warlock'],
-  message: {
-    win: 'You win!',
-    lose: 'Game Over.',
-    warning: 'You have already guessed this letter: '
-  },
+  words: ['destiny','ghost','vex','taken', 'warlock', 'banshee'],
 
   randomWord: function() {
 
     var answerWord = wordObj.words[Math.floor(Math.random() * wordObj.words.length)];
 
-    return answerWord;
-  }
+    var answerArray = [];
+
+    for (var i = 0; i < answerWord.length; i++) {
+
+        answerArray.push(answerWord[i]);
+
+    }
+
+    return answerArray;
+  },
+
+  blankWord: function(answerWord) {
+
+        var blankCharacter = [];
+
+        for (var i = 0; i < answerWord.length; i++) {
+
+            blankCharacter.push("_");
+
+        }
+
+        console.log(blankCharacter);
+
+        return blankCharacter;
+    }
 };
 
 module.exports = wordObj;
