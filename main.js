@@ -5,7 +5,8 @@ var Letter = require('./letter.js');
 var Word = require('./word.js');
 var inquirer = require('inquirer');
 
-var answer = Game.randomWord();
+// var answer = Game.randomWord();
+var answer = ['t','e','s','t']
 var guessWord = Game.blankWord(answer);
 
 function letterGuess () {
@@ -22,14 +23,14 @@ function letterGuess () {
 
     console.log(word.checkLetter());
 
-    // if (guessWord != answer) {
-    //
-    //   letterGuess();
-    // }
-    // else
-    // {
-    //   console.log("Game over");
-    // }
+    if (word.checkLetter() != answer) {
+
+      letterGuess();
+    }
+    else
+    {
+      console.log("Game over");
+    }
   });
 }
 letterGuess();
