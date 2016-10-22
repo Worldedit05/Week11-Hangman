@@ -2,19 +2,15 @@
 
 var Letter = function(character, check) {
 
-  this.character = character;
-  this.check = check;
-  this.letterConv = function() {
-    if (check) {
-
-      return this.character;
-
-    } else {
-
-      return "_";
-
-    }
-  };
+    this.character = character;
+    this.check = check;
+    this.letterConv = function() {
+        if (check) {
+            return this.character;
+        } else {
+            return "_";
+        }
+    };
 
 };
 
