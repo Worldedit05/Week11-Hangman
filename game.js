@@ -28,8 +28,6 @@ var wordObj = {
 
         }
 
-        console.log(blankCharacter);
-
         return blankCharacter;
     }
 };
